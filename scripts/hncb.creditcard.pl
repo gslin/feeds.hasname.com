@@ -38,6 +38,7 @@ sub main {
     $link->href(WEBURL);
 
     my $feed = XML::Atom::Feed->new;
+    $feed->id('http://feeds.hasname.com/feed/hncb.creditcard.atom');
     $feed->title('最新消息 :: 信用卡 :: 華南銀行');
     $feed->add_link($link);
 
