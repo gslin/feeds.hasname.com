@@ -5,6 +5,7 @@ use Encode;
 use HTML::TreeBuilder;
 use Object::Destroyer;
 use LWP::UserAgent;
+use URI;
 use XML::Atom::Entry;
 use XML::Atom::Feed;
 use XML::Atom::Link;
@@ -40,6 +41,8 @@ sub main {
     $feed->title('最新消息 :: 信用卡服務 :: 國泰世華銀行');
     $feed->add_link($link);
 
+    my $baseUri = URI->new(WEBURL);
+
     foreach my $link ($h->look_down('_tag' => 'td', 'class' => 'links')) {
 	next unless defined $link;
 	my $link_o = Object::Destroyer->new($link, 'delete');
@@ -48,10 +51,12 @@ sub main {
 	next unless defined $a;
 	my $a_o = Object::Destroyer->new($a, 'delete');
 
+	my $uri = URI->new_abs($a->attr('href'), $baseUri);
+
 	my $link = XML::Atom::Link->new;
 	$link->type('text/html');
 	$link->rel('alternate');
-	$link->href($a->attr('href'));
+	$link->href($uri->as_string);
 
 	my $entry = XML::Atom::Entry->new;
 	$entry->title($a->as_text);
