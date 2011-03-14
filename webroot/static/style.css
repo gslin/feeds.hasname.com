@@ -2,16 +2,20 @@
 
 article {
     clear: both;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 footer {
     clear: both;
     color: #777;
     font-size: 0.8em;
+    margin-top: 1em;
 }
 
 header {
     clear: both;
+    margin-bottom: 1em;
 }
 
 h1 {
