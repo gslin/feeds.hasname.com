@@ -1,0 +1,3 @@
+# feeds.hasname.com
+User-agent: *
+Disallow: /ajax
