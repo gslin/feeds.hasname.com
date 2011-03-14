@@ -8,7 +8,7 @@ RSYNC_OPT?=	-av --delete-after --exclude .git
 all: update
 
 deploy: update
-	${RSYNC} ${RSYNC_OPT} ./ feeds.hasname.com:/var/www/feeds.hasname.com/
+	${RSYNC} ${RSYNC_OPT} --exlucde webroot/feed/ ./ feeds.hasname.com:/var/www/feeds.hasname.com/
 
 push:
 	${GIT} push -v
