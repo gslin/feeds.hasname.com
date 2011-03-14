@@ -28,8 +28,8 @@ h2 {
 }
 
 .like, .twitter-share-button {
-    height: 2em !important;
-    line-height: 2em;
+    height: 3em !important;
+    line-height: 3em;
 }
 
 #qrcode {
