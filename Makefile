@@ -1,5 +1,6 @@
 #
 DATE?=		date
+GIT?=		git
 ID?=		id
 RSYNC?=		rsync
 RSYNC_OPT?=	-av --delete-after --exclude .git
