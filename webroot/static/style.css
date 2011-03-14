@@ -22,6 +22,15 @@ h2 {
     font-size: 1.5em;
 }
 
+.facebook-like, .tweet-like {
+    display: inline-block;
+}
+
+.like, .twitter-share-button {
+    height: 2em !important;
+    line-height: 2em;
+}
+
 #qrcode {
     float: right;
 }
