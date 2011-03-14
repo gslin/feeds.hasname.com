@@ -1,5 +1,9 @@
 /* feeds.hasname.com */
 
+article {
+    clear: both;
+}
+
 footer {
     clear: both;
     color: #777;
