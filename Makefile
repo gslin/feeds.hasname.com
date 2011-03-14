@@ -8,7 +8,7 @@ RSYNC_OPT?=	-av --delete-after --exclude .git
 #
 all: update
 
-deploy: update
+deploy: pull update
 	${RSYNC} ${RSYNC_OPT} --exclude webroot/feed/ ./ feeds.hasname.com:/var/www/feeds.hasname.com/
 
 pull:
