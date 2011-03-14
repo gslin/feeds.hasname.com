@@ -2,7 +2,7 @@
 DATE?=		date
 ID?=		id
 RSYNC?=		rsync
-RSYNC_OPT?=	--exclude .git
+RSYNC_OPT?=	-av --delete-after --exclude .git
 
 #
 all: update
