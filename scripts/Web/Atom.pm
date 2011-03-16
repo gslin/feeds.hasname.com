@@ -45,6 +45,7 @@ sub _build_feed {
 	}
 
 	$entry->content($e->content);
+	$entry->title($e->title);
 
 	my $link = XML::Atom::Link->new(Version => 1.0);
 	$link->type('text/html');
