@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Any::Moose;
-has 'feed' => (is => 'rw', isa => 'XML::Atom::Feed', lazy_build => 1);
+has 'feed' => (is => 'rw', isa => 'XML::Atom::Feed', lazy_build => 1, handles => {as_xml => 'as_xml'});
 has 'p' => (is => 'ro', isa => 'Str', required => 1);
 has 'plugin' => (is => 'rw', isa => 'Web::Atom::Plugin', lazy_build => 1);
 
