@@ -33,11 +33,11 @@ sub entries {
 
     my @entries;
 
-    foreach my $link ($h->look_down('_tag' => 'td', 'class' => 'links')) {
+    foreach my $link ($h->look_down(_tag => 'td', class => 'links')) {
 	next unless defined $link;
 	my $link_o = Object::Destroyer->new($link, 'delete');
 
-	my $a = $link->look_down('_tag', 'a');
+	my $a = $link->look_down(_tag => 'a');
 	next unless defined $a;
 	my $a_o = Object::Destroyer->new($a, 'delete');
 
