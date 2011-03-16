@@ -47,9 +47,10 @@ sub entries {
 	next unless defined $a;
 	my $a_o = Object::Destroyer->new($a, 'delete');
 
-	my $uri = URI->new_abs($a->attr('href'), $baseUri);
+	my $title = $a->as_text;
+	my $uri = URI->new_abs($a->attr('href'), $baseUri)->as_string;
 
-	my $entry = Web::Atom::Util::inline_object(content => sub {''}, title => sub {$a->as_text}, url => sub {$uri->as_string});
+	my $entry = Web::Atom::Util::inline_object(content => sub {''}, title => sub {$title}, url => sub {$uri});
 	push @entries, $entry;
     }
 

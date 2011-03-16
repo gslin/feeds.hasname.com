@@ -32,6 +32,9 @@ sub _build_feed {
     $feed->id($plugin->id);
     $feed->title($plugin->title);
 
+    use Data::Dumper;
+    print Dumper $plugin->entries;
+
     foreach my $e (@{$plugin->entries}) {
 	my $entry = XML::Atom::Entry->new(Version => 1.0);
 
