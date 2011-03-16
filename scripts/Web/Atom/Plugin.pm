@@ -10,9 +10,12 @@ has 'title' => (is => 'rw', isa => 'Str', default => 'Default title');
 has 'url' => (is => 'rw', isa => 'Str');
 
 use Carp;
+use namespace::autoclean;
 
 sub entries {
     croak 'Not implemented';
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
