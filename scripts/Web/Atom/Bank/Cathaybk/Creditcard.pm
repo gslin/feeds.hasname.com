@@ -13,7 +13,7 @@ use URI;
 use Web::Atom::Util;
 use namespace::autoclean;
 
-after 'BUILDARGS' => sub {
+before 'BUILD' => sub {
     my $self = shift;
 
     $self->author_email('cathaybk_domain@cathaybk.com.tw');
@@ -53,7 +53,7 @@ sub entries {
 	push @entries, $entry;
     }
 
-    return @entries;
+    return [@entries];
 }
 
 __PACKAGE__->meta->make_immutable;
