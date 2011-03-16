@@ -8,6 +8,7 @@ extends 'Web::Atom::Plugin';
 use Encode;
 use HTML::TreeBuilder;
 use LWP::UserAgent;
+use Object::AutoAccessor;
 use Object::Destroyer;
 use URI;
 use Web::Atom::Util;
@@ -50,7 +51,12 @@ sub entries {
 	my $title = $a->as_text;
 	my $uri = URI->new_abs($a->attr('href'), $baseUri)->as_string;
 
-	my $entry = Web::Atom::Util::inline_object(content => sub {''}, id => sub {$uri}, title => sub {$title}, url => sub {$uri});
+	my $entry = Object::AutoAccessor->new;
+	$entry->content('');
+	$entry->id($uri);
+	$entry->title($title);
+	$entry->url($uri);
+
 	push @entries, $entry;
     }
 
