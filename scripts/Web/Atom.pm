@@ -23,7 +23,7 @@ sub _build_feed {
 
     my $link = XML::Atom::Link->new(Version => 1.0);
     $link->type('text/html');
-    $link->rel('alternate');
+    $link->rel('self');
     $link->href($plugin->url);
 
     my $feed = XML::Atom::Feed->new(Version => 1.0);
