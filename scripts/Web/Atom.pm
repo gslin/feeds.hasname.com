@@ -32,7 +32,7 @@ sub _build_feed {
     $feed->id($plugin->id);
     $feed->title($plugin->title);
 
-    foreach my $e (@$plugin->entries) {
+    foreach my $e (@{$plugin->entries}) {
 	my $entry = XML::Atom::Entry->new;
 
 	if (defined $entry->author) {
@@ -64,11 +64,8 @@ sub _build_plugin {
     my $p = $self->p;
     my $pname = "Web::Atom::$p";
 
-    require $pname;
-    my $plugin;
-    eval "\$plugin = $pname->new;";
-
-    return $plugin;
+    eval "require $pname;";
+    $pname->new;
 }
 
 1;
