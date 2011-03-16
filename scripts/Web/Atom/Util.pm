@@ -23,7 +23,7 @@ sub AUTOLOAD {
     if (ref($self->{$attr}) eq 'CODE') {
         $self->{$attr}->(@_);
     } else {
-        Carp::croak(qq/Can't locate object method "$attr" via package "Plack::Util::Prototype"/);
+        Carp::croak(qq/Can't locate object method "$attr" via package "Web::Atom::Util::Prototype"/);
     }
 }
 
