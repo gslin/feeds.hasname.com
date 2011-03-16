@@ -3,16 +3,16 @@ use strict;
 use warnings;
 
 use Any::Moose;
-has 'feed' => (is => 'rw', isa => 'XML::Atom::Feed', lazy => 1);
+has 'feed' => (is => 'rw', isa => 'XML::Atom::Feed', lazy_build => 1);
 has 'p' => (is => 'ro', isa => 'Str', required => 1);
-has 'plugin' => (is => 'rw', isa => 'Web::Atom::Plugin', lazy => 1);
+has 'plugin' => (is => 'rw', isa => 'Web::Atom::Plugin', lazy_build => 1);
 
 use XML::Atom::Entry;
 use XML::Atom::Feed;
 use XML::Atom::Link;
 use XML::Atom::Person;
 
-sub build_feed {
+sub _build_feed {
     my $self = shift;
 
     my $plugin = $self->plugin;
@@ -58,7 +58,7 @@ sub build_feed {
     return $feed;
 }
 
-sub build_plugin {
+sub _build_plugin {
     my $self = shift;
 
     my $p = $self->p;
