@@ -11,7 +11,6 @@ use LWP::UserAgent;
 use Object::AutoAccessor;
 use Object::Destroyer;
 use URI;
-use Web::Atom::Util;
 use namespace::autoclean;
 
 sub BUILD {
