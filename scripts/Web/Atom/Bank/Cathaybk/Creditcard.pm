@@ -50,7 +50,7 @@ sub entries {
 	my $title = $a->as_text;
 	my $uri = URI->new_abs($a->attr('href'), $baseUri)->as_string;
 
-	my $entry = Web::Atom::Util::inline_object(content => sub {''}, title => sub {$title}, url => sub {$uri});
+	my $entry = Web::Atom::Util::inline_object(content => sub {''}, id => sub {$uri}, title => sub {$title}, url => sub {$uri});
 	push @entries, $entry;
     }
 
