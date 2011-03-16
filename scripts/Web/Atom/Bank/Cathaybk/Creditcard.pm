@@ -13,7 +13,7 @@ use URI;
 use Web::Atom::Util;
 use namespace::autoclean;
 
-before 'BUILD' => sub {
+sub BUILD {
     my $self = shift;
 
     $self->author_email('cathaybk_domain@cathaybk.com.tw');
@@ -21,7 +21,7 @@ before 'BUILD' => sub {
     $self->id('http://feeds.hasname.com/feed/cathaybk.creditcard.atom');
     $self->title('最新消息 :: 信用卡服務 :: 國泰世華銀行');
     $self->url('https://www.cathaybk.com.tw/cathaybk/news_card.asp');
-};
+}
 
 sub entries {
     my $self = shift;
