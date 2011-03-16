@@ -26,15 +26,9 @@ sub BUILD {
 sub entries {
     my $self = shift;
 
-    my $ua = LWP::UserAgent->new;
-    $ua->ssl_opts(verify_hostname => 0);
-
-    my $res = $ua->get($self->url);
-    my $body = Encode::encode('utf-8', $res->decoded_content);
-
     my $baseUri = URI->new($self->url);
 
-    my $h = HTML::TreeBuilder->new_from_content($body);
+    my $h = HTML::TreeBuilder->new_from_content($self->body);
     my $h_o = Object::Destroyer->new($h, 'delete');
 
     my @entries;
