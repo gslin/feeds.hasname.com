@@ -18,7 +18,6 @@ sub BUILD {
 
     $self->author_email('wen.yang@megabank.com.tw');
     $self->author_name('www.megabank.com.tw');
-    $self->id('http://feeds.hasname.com/feed/megabank.creditcard.atom');
     $self->title('最新消息 :: 信用卡 :: 兆豐國際商業銀行');
     $self->url('https://www.megabank.com.tw/creditcard/news.asp');
 }

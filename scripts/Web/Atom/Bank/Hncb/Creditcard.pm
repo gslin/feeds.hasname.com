@@ -18,7 +18,6 @@ sub BUILD {
 
     $self->author_email('bansonlin@ms1.hncb.com.tw');
     $self->author_name('www.hncb.com.tw');
-    $self->id('http://feeds.hasname.com/feed/hncb.creditcard.atom');
     $self->title('最新消息 :: 信用卡 :: 華南銀行');
     $self->url('http://www.hncb.com.tw/news/newslist_credit_1.shtml');
 }

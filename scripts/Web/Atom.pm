@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Any::Moose;
-has 'feed' => (is => 'rw', isa => 'XML::Atom::Feed', lazy_build => 1, handles => {as_xml => 'as_xml'});
+has 'feed' => (is => 'rw', isa => 'XML::Atom::Feed', lazy_build => 1, handles => {as_xml => 'as_xml', id => 'id'});
 has 'p' => (is => 'ro', isa => 'Str', required => 1);
 has 'plugin' => (is => 'rw', isa => 'Web::Atom::Plugin', lazy_build => 1);
 
@@ -29,7 +29,6 @@ sub _build_feed {
     my $feed = XML::Atom::Feed->new(Version => 1.0);
     $feed->add_link($link);
     $feed->author($author);
-    $feed->id($plugin->id);
     $feed->title($plugin->title);
 
     foreach my $e (@{$plugin->entries}) {

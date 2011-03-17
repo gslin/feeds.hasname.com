@@ -18,7 +18,6 @@ sub BUILD {
 
     $self->author_email('cathaybk_domain@cathaybk.com.tw');
     $self->author_name('www.cathaybk.com.tw');
-    $self->id('http://feeds.hasname.com/feed/cathaybk.creditcard.atom');
     $self->title('最新消息 :: 信用卡服務 :: 國泰世華銀行');
     $self->url('https://www.cathaybk.com.tw/cathaybk/news_card.asp');
 }

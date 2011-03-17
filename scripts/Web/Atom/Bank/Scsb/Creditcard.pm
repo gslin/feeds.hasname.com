@@ -18,7 +18,6 @@ sub BUILD {
 
     $self->author_email('cykuo@scsb.com.tw');
     $self->author_name('www.scsb.com.tw');
-    $self->id('http://feeds.hasname.com/feed/scsb.creditcard.atom');
     $self->title('HOT NEWS :: 信用卡 :: 上海商業儲蓄銀行');
     $self->url('http://www.scsb.com.tw/card.jsp');
 }
