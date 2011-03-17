@@ -5,9 +5,7 @@ use warnings;
 use Any::Moose;
 extends 'Web::Atom::Plugin';
 
-use Encode;
 use HTML::TreeBuilder;
-use LWP::UserAgent;
 use Object::AutoAccessor;
 use Object::Destroyer;
 use URI;
