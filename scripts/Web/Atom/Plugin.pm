@@ -9,6 +9,7 @@ has 'body' => (is => 'rw', isa => 'Str', lazy_build => 1);
 has 'id' => (is => 'rw', isa => 'Str');
 has 'title' => (is => 'rw', isa => 'Str', default => 'Default title');
 has 'url' => (is => 'rw', isa => 'Str');
+has 'url_encoding' => (is => 'rw', isa => 'Str', default => '');
 
 use Carp;
 use Encode;
@@ -22,7 +23,11 @@ sub _build_body {
     $ua->ssl_opts(verify_hostname => 0);
 
     my $res = $ua->get($self->url);
-    Encode::encode('utf-8', $res->decoded_content);
+    if ('' eq $self->url_encoding) {
+	return encode('utf8', $res->decoded_content);
+    } else {
+	return encode('utf8', decode($self->url_encoding, $res->content));
+    }
 }
 
 sub entries {
