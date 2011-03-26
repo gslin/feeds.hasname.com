@@ -5,9 +5,7 @@ use Web::Atom;
 use strict;
 use warnings;
 
-main();
-
-sub main {
+INIT {
     my $feed = Web::Atom->new(p => 'Bank::Firstbank::Creditcard');
     $feed->id('http://feeds.hasname.com/feed/firstbank.creditcard.atom');
 
